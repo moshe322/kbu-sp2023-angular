@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'environments/environment';
+import { Product } from './product';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +12,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  public getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.apiUrl}/all`);
-  }
-
-  public addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(`${this.apiUrl}/add`, book);
-  }
-
-  public updateBook(book: Book): Observable<Book> {
-    return this.http.put<Book>(`${this.apiUrl}/update`, book);
-  }
-
-  public deleteBook(bookISBN: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}delete/${bookISBN}`);
+  public getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}/all`);
   }
 }
