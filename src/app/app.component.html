@@ -2,12 +2,3 @@
 <app-search></app-search>
 
 <app-card></app-card>
-
-<div *ngIf="recommendations">
-    <h2>Recommendations:</h2>
-    <ul>
-      <li *ngFor="let recommendation of recommendations.item_ids">
-        {{ recommendation | json }}
-      </li>
-    </ul>
-  </div>
