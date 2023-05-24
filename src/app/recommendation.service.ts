@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
+import { Observable } from 'rxjs';
+import { Recommendations } from './recommendations';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecommendationService {
+  private recommenderUrl = environment.recommenderUrl;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  public getRecommendations(key: string): Observable<Recommendations> {
+    return this.http.get<Recommendations>(`${this.recommenderUrl}/${key}`);
+  }
 }
