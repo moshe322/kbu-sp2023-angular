@@ -1,3 +1,3 @@
 export interface Recommendations {
-    item_ids: string[];
+    item_ids: number [];
   }  
