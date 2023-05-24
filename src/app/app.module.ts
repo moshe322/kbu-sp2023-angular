@@ -9,13 +9,15 @@ import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    FilterPipe
+    FilterPipe,
+    CardComponent
   ],
   imports: [
     BrowserModule,
