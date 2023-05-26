@@ -7,6 +7,7 @@ import { NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
 import { RecommendationService } from '../recommendation.service';
 import { Recommendations } from '../recommendations';
 import { ResultComponent } from '../result/result.component';
+import { ResultService } from '../result.service';
 
 @Component({
   selector: 'app-search',
@@ -35,7 +36,7 @@ export class SearchComponent {
       )
     );
 
-  constructor(private recommendationService: RecommendationService, private productService: ProductService){}
+  constructor(private resultService: ResultService, private recommendationService: RecommendationService, private productService: ProductService){}
   ngOnInit(): void {
     this.getProducts();
   }
@@ -58,6 +59,7 @@ export class SearchComponent {
         (data: Recommendations) => {
           this.recommendations = data;
           this.recommendedProducts = this.products.filter(product => this.recommendations.item_ids.includes(Number(product.productID)))
+          this.resultService.updateRecommendedProducts(this.recommendedProducts);
         },
         (error) => {
           console.error(error);

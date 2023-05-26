@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Product } from '../product';
+import { ResultService } from '../result.service';
 
 @Component({
   selector: 'app-result',
@@ -7,5 +8,14 @@ import { Product } from '../product';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
-  @Input() recommendedProducts: Product[] = [];
+  recommendedProducts: Product [] = [];
+
+  constructor(private resultService: ResultService) { }
+
+  ngOnInit() {
+    this.resultService.recommendedProducts$.subscribe(products => {
+      this.recommendedProducts = products;
+      // Handle the updated recommendedProducts array in the result component
+    });
+  }
 }
