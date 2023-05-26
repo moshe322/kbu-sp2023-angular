@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../product';
+import { getCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-card',
@@ -8,6 +9,7 @@ import { Product } from '../product';
 })
 export class CardComponent {
   @Input() product: Product | undefined;
+  myCurrency = getCurrencySymbol("TRY", "narrow");
 
   getMarketLogoUrl(marketID: number): string {
     return `assets/images/markets/market-${marketID}.png`;
