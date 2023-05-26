@@ -1,0 +1,14 @@
+app-header {
+    width: 100%;
+    float: left;
+    background-image: url(../assets/images/banner-bg.png);
+    height: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+app-showcase {
+    width: 100%;
+    float: left;
+    padding-bottom: 150px;
+}

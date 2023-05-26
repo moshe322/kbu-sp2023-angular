@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
 import { ResultComponent } from './result/result.component';
 import { FooterComponent } from './footer/footer.component';
+import { ShowcaseComponent } from './showcase/showcase.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FooterComponent } from './footer/footer.component';
     FilterPipe,
     CardComponent,
     ResultComponent,
-    FooterComponent
+    FooterComponent,
+    ShowcaseComponent
   ],
   imports: [
     BrowserModule,
