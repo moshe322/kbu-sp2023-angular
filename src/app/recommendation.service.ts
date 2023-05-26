@@ -15,4 +15,8 @@ export class RecommendationService {
   public getRecommendations(key: string): Observable<Recommendations> {
     return this.http.get<Recommendations>(`${this.recommenderUrl}/${key}`);
   }
+
+  public getRecommendationsByUnit(key: string): Observable<Recommendations> {
+    return this.http.get<Recommendations>(`${this.recommenderUrl}-ppu/${key}`);
+  }
 }

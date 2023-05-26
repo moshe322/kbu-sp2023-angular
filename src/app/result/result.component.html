@@ -4,3 +4,10 @@
         <app-card *ngFor="let recommendedProduct of recommendedProducts" [product]="recommendedProduct"></app-card>
     </div>
 </div>
+
+<div class="container mt-5">
+    <div *ngIf="recommendedProductsByUnit.length > 3" class="result border border-secondary rounded">
+        <h1>Cheapest Products (Price Per Unit):</h1>
+        <app-card *ngFor="let recommendedProductByUnit of recommendedProductsByUnit" [product]="recommendedProductByUnit"></app-card>
+    </div>
+</div>
