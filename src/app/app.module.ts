@@ -13,6 +13,8 @@ import { CardComponent } from './card/card.component';
 import { ResultComponent } from './result/result.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
+import { SortByPricePipe } from './sort-by-price.pipe';
+import { SortByUnitPricePipe } from './sort-by-unit-price.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ShowcaseComponent } from './showcase/showcase.component';
     CardComponent,
     ResultComponent,
     FooterComponent,
-    ShowcaseComponent
+    ShowcaseComponent,
+    SortByPricePipe,
+    SortByUnitPricePipe
   ],
   imports: [
     BrowserModule,

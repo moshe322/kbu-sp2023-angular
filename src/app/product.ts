@@ -3,4 +3,5 @@ export interface Product {
     marketID: number;
     productName: string;
     productPrice: number;
+    unitNumber: number;
 }
