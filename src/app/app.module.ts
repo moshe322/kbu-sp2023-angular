@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
 import { ResultComponent } from './result/result.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ResultComponent } from './result/result.component';
     SearchComponent,
     FilterPipe,
     CardComponent,
-    ResultComponent
+    ResultComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
