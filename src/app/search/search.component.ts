@@ -6,11 +6,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
 import { RecommendationService } from '../recommendation.service';
 import { Recommendations } from '../recommendations';
+import { ResultComponent } from '../result/result.component';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  entryComponents: [ResultComponent]
 })
 export class SearchComponent {
   title = 'product-recommender-angular';
@@ -62,5 +64,4 @@ export class SearchComponent {
         }
       );
   }
-  
 }

@@ -3,8 +3,4 @@
     (selectItem)="onSelect($event)" />
 </div>
 
-<div class="container mt-5">
-  <div class="row">
-    <app-card class="col-md-12" *ngFor="let recommendedProduct of recommendedProducts" [product]="recommendedProduct"></app-card>
-  </div>
-</div>
+<app-result [recommendedProducts]="recommendedProducts"></app-result>

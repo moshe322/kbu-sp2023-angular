@@ -10,6 +10,7 @@ import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CardComponent } from './card/card.component';
     HeaderComponent,
     SearchComponent,
     FilterPipe,
-    CardComponent
+    CardComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

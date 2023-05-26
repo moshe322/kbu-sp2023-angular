@@ -1,24 +1,16 @@
-body{
-
-	background-color: #eee;
-}
-
 .container{
 	width: 900px;
 }
 
 .card{
-
 	background-color: #fff;
 	border:none;
 	border-radius: 10px;
 	width: 190px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .image-container{
-
 	position: relative;
 }
 
@@ -27,7 +19,6 @@ body{
 }
 
 .discount{
-
 	background-color: red;
 	padding-top: 1px;
 	padding-bottom: 1px;
@@ -39,7 +30,6 @@ body{
 }
 
 .wishlist{
-
 	height: 25px;
 	width: 25px;
 	background-color: #eee;
@@ -51,10 +41,9 @@ body{
 }
 
 .first{
-
 	position: absolute;
 	width: 100%;
-	    padding: 9px;
+	padding: 9px;
 }
 
 .dress-name{
