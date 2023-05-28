@@ -24,8 +24,10 @@ export class SearchComponent {
   public selectedProduct: Product | undefined;
   public recommendations! : Recommendations;
   public recommendationsByUnit! : Recommendations;
+  public recommendationsByRating! : Recommendations;
   public recommendedProducts : Product[] = [];
-  public recommendedProductsByUnit : Product[] = []; 
+  public recommendedProductsByUnit : Product[] = [];
+  public recommendedProductsByRating : Product[] = []; 
 
   public search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
     text$.pipe(
@@ -73,6 +75,17 @@ export class SearchComponent {
           this.recommendationsByUnit = data;
           this.recommendedProductsByUnit = this.products.filter(product => this.recommendationsByUnit.item_ids.includes(Number(product.productID)))
           this.resultService.updateRecommendedProductsByUnit(this.recommendedProductsByUnit);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+      this.recommendationService.getRecommendationsByRating(this.selectedProduct.productID.toString())
+      .subscribe(
+        (data: Recommendations) => {
+          this.recommendationsByRating = data;
+          this.recommendedProductsByRating = this.products.filter(product => this.recommendationsByRating.item_ids.includes(Number(product.productID)))
+          this.resultService.updateRecommendedProductsByRating(this.recommendedProductsByRating);
         },
         (error) => {
           console.error(error);

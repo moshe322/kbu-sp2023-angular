@@ -1,13 +1,20 @@
 <div class="container mt-5">
-    <div *ngIf="recommendedProducts.length > 3" class="result border border-secondary rounded">
+    <div *ngIf="recommendedProducts.length > 3 && selectedCategory === 'cheapest'" class="result border border-secondary rounded">
         <h1>Cheapest Products:</h1>
         <app-card *ngFor="let recommendedProduct of recommendedProducts | sortByPrice" [product]="recommendedProduct"></app-card>
     </div>
 </div>
 
 <div class="container mt-5">
-    <div *ngIf="recommendedProductsByUnit.length > 3" class="result border border-secondary rounded">
+    <div *ngIf="recommendedProductsByUnit.length > 3 && selectedCategory === 'cheapestUnit'" class="result border border-secondary rounded">
         <h1>Cheapest Products (Price Per Unit):</h1>
         <app-card *ngFor="let recommendedProductByUnit of recommendedProductsByUnit | sortByUnitPrice" [product]="recommendedProductByUnit"></app-card>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div *ngIf="recommendedProductsByUnit.length > 3 && selectedCategory === 'cheapestRating'" class="result border border-secondary rounded">
+        <h1>Cheapest Products (Price Per Unit):</h1>
+        <app-card *ngFor="let recommendedProductByRating of recommendedProductsByRating | sortByRating" [product]="recommendedProductByRating"></app-card>
     </div>
 </div>

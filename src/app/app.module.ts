@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { SortByPricePipe } from './sort-by-price.pipe';
 import { SortByUnitPricePipe } from './sort-by-unit-price.pipe';
+import { SortByRatingPipe } from './sort-by-rating.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SortByUnitPricePipe } from './sort-by-unit-price.pipe';
     FooterComponent,
     ShowcaseComponent,
     SortByPricePipe,
-    SortByUnitPricePipe
+    SortByUnitPricePipe,
+    SortByRatingPipe
   ],
   imports: [
     BrowserModule,

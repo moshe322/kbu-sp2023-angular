@@ -4,4 +4,5 @@ export interface Product {
     productName: string;
     productPrice: number;
     unitNumber: number;
+    rating: number;
 }

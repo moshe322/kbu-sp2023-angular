@@ -8,8 +8,10 @@ import { Product } from './product';
 export class ResultService {
   private recommendedProductsSource = new BehaviorSubject<Product[]>([]);
   private recommendedProductsByUnitSource = new BehaviorSubject<Product[]>([]);
+  private recommendedProductsByRatingSource = new BehaviorSubject<Product[]>([]);
   recommendedProducts$ = this.recommendedProductsSource.asObservable();
   recommendedProductsByUnit$ = this.recommendedProductsByUnitSource.asObservable();
+  recommendedProductsByRating$ = this.recommendedProductsByRatingSource.asObservable();
 
   constructor() { }
 
@@ -19,5 +21,9 @@ export class ResultService {
 
   updateRecommendedProductsByUnit(products: Product[]) {
     this.recommendedProductsByUnitSource.next(products);
+  }
+
+  updateRecommendedProductsByRating(products: Product[]) {
+    this.recommendedProductsByRatingSource.next(products);
   }
 }

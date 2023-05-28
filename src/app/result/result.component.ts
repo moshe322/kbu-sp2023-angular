@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../product';
 import { ResultService } from '../result.service';
+import { DropdownService } from '../dropdown.service';
 
 @Component({
   selector: 'app-result',
@@ -8,10 +9,12 @@ import { ResultService } from '../result.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
+  selectedCategory: string = 'cheapest';
   recommendedProducts: Product [] = [];
   recommendedProductsByUnit: Product [] = [];
+  recommendedProductsByRating: Product [] = [];
 
-  constructor(private resultService: ResultService) { }
+  constructor(private dropdownService: DropdownService, private resultService: ResultService) { }
 
   ngOnInit() {
     this.resultService.recommendedProducts$.subscribe(products => {
@@ -21,6 +24,14 @@ export class ResultComponent {
     this.resultService.recommendedProductsByUnit$.subscribe(products => {
       this.recommendedProductsByUnit = products;
       // Handle the updated recommendedProducts array in the result component
+    });
+    this.resultService.recommendedProductsByRating$.subscribe(products => {
+      this.recommendedProductsByRating = products;
+      // Handle the updated recommendedProducts array in the result component
+    });
+    this.dropdownService.selectedCategory$.subscribe(category => {
+      this.selectedCategory = category;
+      // Perform any logic or update the results based on the selected category
     });
   }
 }
