@@ -5,4 +5,9 @@ export interface Product {
     productPrice: number;
     unitNumber: number;
     rating: number;
+    productPrice1: number;
+    productPrice2: number;
+    productPrice3: number;
+    productPrice4: number;
+    productPrice5: number;
 }

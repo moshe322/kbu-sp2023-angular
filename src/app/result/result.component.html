@@ -14,7 +14,7 @@
 
 <div class="container mt-5">
     <div *ngIf="recommendedProductsByUnit.length > 3 && selectedCategory === 'cheapestRating'" class="result border border-secondary rounded">
-        <h1>Cheapest Products (Price Per Unit):</h1>
+        <h1>Cheapest Products (By Rating):</h1>
         <app-card *ngFor="let recommendedProductByRating of recommendedProductsByRating | sortByRating" [product]="recommendedProductByRating"></app-card>
     </div>
 </div>
