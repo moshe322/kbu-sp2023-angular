@@ -16,6 +16,7 @@ import { ShowcaseComponent } from './showcase/showcase.component';
 import { SortByPricePipe } from './sort-by-price.pipe';
 import { SortByUnitPricePipe } from './sort-by-unit-price.pipe';
 import { SortByRatingPipe } from './sort-by-rating.pipe';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SortByRatingPipe } from './sort-by-rating.pipe';
     ShowcaseComponent,
     SortByPricePipe,
     SortByUnitPricePipe,
-    SortByRatingPipe
+    SortByRatingPipe,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
