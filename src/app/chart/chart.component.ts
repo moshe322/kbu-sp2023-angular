@@ -12,6 +12,22 @@ export class ChartComponent implements AfterViewInit {
 
   @Input() priceData?: number[];
 
+  currentMonth = new Date().getMonth();
+  monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
   constructor(private activeModal: NgbActiveModal) {}
 
   ngAfterViewInit() {
@@ -20,10 +36,16 @@ export class ChartComponent implements AfterViewInit {
     const ctx = document.getElementById('price-chart') as HTMLCanvasElement;
     //const ctx = this.chartCanvas?.nativeElement.getContext('2d');
 
+    const labels = [];
+    for (let i = 5; i >= 0; i--) {
+      const monthIndex = (this.currentMonth + 12 - i) % 12;
+      labels.push(this.monthNames[monthIndex]);
+  }
+
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['6 months ago', '5 months ago', '4 months ago', '3 months ago', '2 months ago', '1 month ago'],
+        labels: labels,
         datasets: [
           {
             label: 'Price',
