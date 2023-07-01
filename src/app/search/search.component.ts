@@ -8,6 +8,7 @@ import { RecommendationService } from '../recommendation.service';
 import { Recommendations } from '../recommendations';
 import { ResultComponent } from '../result/result.component';
 import { ResultService } from '../result.service';
+import { SelectedProductService } from '../selected-product.service';
 
 @Component({
   selector: 'app-search',
@@ -40,7 +41,7 @@ export class SearchComponent {
       )
     );
 
-  constructor(private resultService: ResultService, private recommendationService: RecommendationService, private productService: ProductService){}
+  constructor(private resultService: ResultService, private recommendationService: RecommendationService, private productService: ProductService, private selectedProductService: SelectedProductService){}
   ngOnInit(): void {
     this.getProducts();
   }
@@ -58,6 +59,7 @@ export class SearchComponent {
 
   public onSelect(event: NgbTypeaheadSelectItemEvent): void {
     this.selectedProduct = this.products[this.products.findIndex(product => product.productName === event.item)]
+    this.selectedProductService.setSelectedProduct(this.selectedProduct);
     this.recommendationService.getRecommendations(this.selectedProduct.productID.toString())
       .subscribe(
         (data: Recommendations) => {
