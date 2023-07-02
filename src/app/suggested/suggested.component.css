@@ -1,0 +1,11 @@
+.suggested {
+    width: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: space-between;
+    padding: 10px;
+}
+
+app-card {
+    padding: 10px;
+}

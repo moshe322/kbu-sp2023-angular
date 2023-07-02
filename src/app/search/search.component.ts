@@ -8,7 +8,7 @@ import { RecommendationService } from '../recommendation.service';
 import { Recommendations } from '../recommendations';
 import { ResultComponent } from '../result/result.component';
 import { ResultService } from '../result.service';
-import { SelectedProductService } from '../selected-product.service';
+import { SuggestedService } from '../suggested.service';
 
 @Component({
   selector: 'app-search',
@@ -26,9 +26,11 @@ export class SearchComponent {
   public recommendations! : Recommendations;
   public recommendationsByUnit! : Recommendations;
   public recommendationsByRating! : Recommendations;
+  public suggestions! : Recommendations;
   public recommendedProducts : Product[] = [];
   public recommendedProductsByUnit : Product[] = [];
-  public recommendedProductsByRating : Product[] = []; 
+  public recommendedProductsByRating : Product[] = [];
+  public suggestedProducts : Product[] = [];
 
   public search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
     text$.pipe(
@@ -41,7 +43,7 @@ export class SearchComponent {
       )
     );
 
-  constructor(private resultService: ResultService, private recommendationService: RecommendationService, private productService: ProductService, private selectedProductService: SelectedProductService){}
+  constructor(private resultService: ResultService, private recommendationService: RecommendationService, private productService: ProductService, private suggestedService: SuggestedService){}
   ngOnInit(): void {
     this.getProducts();
   }
@@ -59,7 +61,6 @@ export class SearchComponent {
 
   public onSelect(event: NgbTypeaheadSelectItemEvent): void {
     this.selectedProduct = this.products[this.products.findIndex(product => product.productName === event.item)]
-    this.selectedProductService.setSelectedProduct(this.selectedProduct);
     this.recommendationService.getRecommendations(this.selectedProduct.productID.toString())
       .subscribe(
         (data: Recommendations) => {
@@ -88,6 +89,17 @@ export class SearchComponent {
           this.recommendationsByRating = data;
           this.recommendedProductsByRating = this.products.filter(product => this.recommendationsByRating.item_ids.includes(Number(product.productID)))
           this.resultService.updateRecommendedProductsByRating(this.recommendedProductsByRating);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+      this.suggestedService.getSuggestedProducts(this.selectedProduct.productID.toString())
+      .subscribe(
+        (data: Recommendations) => {
+          this.suggestions = data;
+          this.suggestedProducts = this.products.filter(product => this.suggestions.item_ids.includes(Number(product.productID)))
+          this.resultService.updateSuggestedProducts(this.suggestedProducts);
         },
         (error) => {
           console.error(error);

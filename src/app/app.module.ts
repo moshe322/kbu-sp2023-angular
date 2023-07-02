@@ -17,6 +17,9 @@ import { SortByPricePipe } from './sort-by-price.pipe';
 import { SortByUnitPricePipe } from './sort-by-unit-price.pipe';
 import { SortByRatingPipe } from './sort-by-rating.pipe';
 import { ChartComponent } from './chart/chart.component';
+import { SuggestedComponent } from './suggested/suggested.component';
+import { SortByPriceChangePipe } from './sort-by-price-change.pipe';
+import { PriceChangeDirective } from './price-change.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ChartComponent } from './chart/chart.component';
     SortByPricePipe,
     SortByUnitPricePipe,
     SortByRatingPipe,
-    ChartComponent
+    ChartComponent,
+    SuggestedComponent,
+    SortByPriceChangePipe,
+    PriceChangeDirective
   ],
   imports: [
     BrowserModule,

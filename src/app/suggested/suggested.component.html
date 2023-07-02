@@ -1,0 +1,6 @@
+<div class="container mt-5">
+    <div *ngIf="suggestedProducts.length > 1" class="suggested border border-secondary rounded">
+        <h1>Suggested Products:</h1>
+        <app-card *ngFor="let product of suggestedProducts | sortByPriceChange" [product]="product" [appPriceChange]="product.productPrice" [lastMonthPrice]="product.productPrice1"></app-card>
+    </div>
+</div>
